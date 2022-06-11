@@ -1,4 +1,4 @@
-/*const nums = [1, 2, 3, 4, 5];
+const nums = [1, 2, 3, 4, 5];
 const numsNew = nums.map((num) => num * 2);
 console.log(numsNew);
 //
@@ -159,7 +159,7 @@ console.log(byAge([
 //  { name: 'Unlucky Swami', age: 77 },
 //  { name: 'Arrogant Ambassador', age: 100 } ]
 
-//*/
+//
 // Array reduce exercises
 
 function total(arr) {
@@ -282,9 +282,124 @@ console.log(voterResults(voters)); // Returned value shown below:
   numMidsPeople: 4,
   numOldVotesPeople: 3,
   numOldsPeople: 4
-}
-*/
+}*/
 //
+
+// Multiple Array Methods Part 1
+
+var peopleArray = [
+    {
+        firstName: "Sarah",
+        lastName: "Palin",
+        age: 47
+    },
+    {
+        firstName: "Frank",
+        lastName: "Zappa",
+        age: 12
+    },
+    {
+        firstName: "Rick",
+        lastName: "Sanchez",
+        age: 78
+    },
+    {
+        firstName: "Morty",
+        lastName: "Smith",
+        age: 29
+    },
+    {
+        firstName: "Kyle",
+        lastName: "Mooney",
+        age: 27
+    },
+    {
+        firstName: "Pasha",
+        lastName: "Datsyuk",
+        age: 13
+    },
+    {
+        firstName: "Lev",
+        lastName: "Tolstoy",
+        age: 82
+    }
+];
+
+function sortedOfAge(arr) {
+    let over18 = arr.filter(obj => obj.age > 18);
+    over18.sort((a, b) => {
+        if (a.lastName > b.lastName) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+    let result = over18.map(obj => `<li>${obj.firstName} ${obj.lastName} is ${obj.age}</li>`);
+    return result;
+}
+
+console.log(sortedOfAge(peopleArray));
+
+/*
+Output:
+[
+    "<li>Kyle Mooney is 27</li>",
+    "<li>Sarah Palin is 47</li>",
+    "<li>Rick Sanchez is 78</li>",
+    "<li>Morty Smith is 29</li>",
+    "<li>Lev Tolstoy is 82</li>"
+]
+*/
+// extra credit
+function reversedArray(arr) {
+    let endsWithAOrY = arr.filter(obj => {
+        if (obj.lastName.endsWith("a") || obj.lastName.endsWith("y")) {
+            return true;
+        }
+    });
+    endsWithAOrY.splice(1, 1);
+    endsWithAOrY.reverse();
+    return endsWithAOrY;
+}
+var peopleArray = [
+    {
+        firstName: "Sarah",
+        lastName: "Palin",
+        age: 47
+    },
+    {
+        firstName: "Frank",
+        lastName: "Zappa",
+        age: 12
+    },
+    {
+        firstName: "Rick",
+        lastName: "Sanchez",
+        age: 78
+    },
+    {
+        firstName: "Morty",
+        lastName: "Smith",
+        age: 29
+    },
+    {
+        firstName: "Kyle",
+        lastName: "Mooney",
+        age: 27
+    },
+    {
+        firstName: "Pasha",
+        lastName: "Datsyuk",
+        age: 13
+    },
+    {
+        firstName: "Lev",
+        lastName: "Tolstoy",
+        age: 82
+    }
+];
+
+console.log(reversedArray(peopleArray));
 
 
 
